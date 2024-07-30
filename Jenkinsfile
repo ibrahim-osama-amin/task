@@ -56,11 +56,10 @@ pipeline {
                 script{
                    echo 'Deploying the image to EC2 instance....'
                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
-                    sh 'ls -l task'
-                   sshagent(['paris-eu-west-3']) {
-                    sh "scp -o StrictHostKeyChecking=no task/server-cmds.sh ${PUBLIC_IP}:/home/ec2-user"
-                    sh "scp -o StrictHostKeyChecking=no task/docker-compose.yaml ${PUBLIC_IP}:/home/ec2-user"
-                    sh "ssh -o StrictHostKeyChecking=no ${PUBLIC_IP} ${shellCmd}"
+                   sshagent(credentials: ['paris-eu-west-3']) {
+                    sh "scp -o StrictHostKeyChecking=no task/server-cmds.sh ec2-user@${PUBLIC_IP}:/home/ec2-user"
+                    sh "scp -o StrictHostKeyChecking=no task/docker-compose.yaml ec2-user@${PUBLIC_IP}:/home/ec2-user"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@${PUBLIC_IP} ${shellCmd}"
                    }
 
                 }
