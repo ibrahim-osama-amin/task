@@ -17,6 +17,25 @@ resource "aws_vpc" "myapp-vpc" {
     }
 }
 
+resource "aws_route_table" "myapp-route-table"{
+    vpc_id = aws_vpc.myapp-vpc.id
+
+    route { 
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.myapp_igw.id
+    }
+    tags = {
+        Name: "prod-rtb"
+    }
+}
+
+resource "aws_internet_gateway" "myapp_igw"{
+    vpc_id = aws_vpc.myapp-vpc.id
+        tags = {
+        Name: "prod-igw"
+    }
+}
+
 resource "aws_subnet" "myapp-subnet-1" {
     vpc_id = aws_vpc.myapp-vpc.id
     cidr_block = var.subnet_cidr_block
