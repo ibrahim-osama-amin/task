@@ -57,7 +57,7 @@ pipeline {
                    echo 'Deploying the image to EC2 instance....'
                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
                     sh 'ls -l task'
-                   sshagent(['ec2-server-key-paris']) {
+                   sshagent(['paris-eu-west-3']) {
                     sh "scp -o StrictHostKeyChecking=no task/server-cmds.sh ${PUBLIC_IP}:/home/ec2-user"
                     sh "scp -o StrictHostKeyChecking=no task/docker-compose.yaml ${PUBLIC_IP}:/home/ec2-user"
                     sh "ssh -o StrictHostKeyChecking=no ${PUBLIC_IP} ${shellCmd}"
