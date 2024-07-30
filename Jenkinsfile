@@ -20,13 +20,7 @@ pipeline {
             steps {
                 script {
                     echo 'Getting the source code....'
-                    checkout([$class: 'GitSCM',
-                              branches: [[name: 'origin/HEAD']],
-                              doGenerateSubmoduleConfigurations: false,
-                              extensions: [[$class: 'CleanBeforeCheckout']],
-                              submoduleCfg: [],
-                              userRemoteConfigs: [[url: 'https://github.com/amarthakur0/nodejs-api-template', credentialsId: 'github-credentials']]
-                    ])
+                    git branch: 'master', url: 'https://github.com/amarthakur0/nodejs-api-template.git'
                 }
                 
             }
