@@ -36,8 +36,9 @@ pipeline {
                     echo 'Building docker image...'
                     sh 'rm -rf task'
                     sh 'git clone https://github.com/ibrahim-osama-amin/task.git'
+                    sh 'ls -l task'
                     sh 'cp task/Dockerfile .'
-                    sh "docker build -t $imageName ."
+                    sh "docker build -t ${imageName} ."
                 }
             }
         }
