@@ -44,8 +44,14 @@ resource "aws_subnet" "myapp-subnet-1" {
         Name = "prod-subnet-1"
     }
 }
+
+resource "aws_route_table_association" "a-rtb-subnet"{
+    subnet_id = aws_subnet.myapp-subnet-1.id
+    route_table_id = aws_route_table.myapp-route-table.id
+}
+
 resource "aws_security_group" "myapp-sg"{
-    name = "myapp-sg"
+    name = "prod-sg"
     vpc_id = aws_vpc.myapp-vpc.id
     ingress {
         from_port = 22
