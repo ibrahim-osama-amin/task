@@ -4,3 +4,4 @@ services:
       image: ${IMAGE}
       ports:
         - 80:80
+      command: ["node", "index.js"]
