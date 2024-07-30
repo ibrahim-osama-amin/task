@@ -25,6 +25,7 @@ pipeline {
         stage('Checkout Build Repo') {
             steps {
                 script {
+                    echo 'Getting the build repo....'
                     git branch: 'master', url: 'https://github.com/ibrahim-osama-amin/task.git'
                 }
             }
@@ -42,6 +43,9 @@ pipeline {
                 script{
                     echo 'Building docker image...'
                     sh 'ls -l'
+                    sh 'ls -l ../'
+                    sh 'ls -l ../../'
+                    sh 'find -type d -name task'
                 }
             }
         }
