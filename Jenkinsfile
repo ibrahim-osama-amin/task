@@ -35,7 +35,8 @@ pipeline {
                 script{
                     echo 'Building docker image...'
                     sh 'git clone https://github.com/ibrahim-osama-amin/task.git'
-                    sh 'ls -l task'
+                    sh 'cp task/Dockerfile .'
+                    sh 'docker build -t $imageName .'
                 }
             }
         }
@@ -44,6 +45,7 @@ pipeline {
                 script{
                    echo 'Pushing docker image to docker hub repo...'
                    dockerLogin()
+                   docker.push(env.IMAGE_NAME)
                 }
             }
         }
