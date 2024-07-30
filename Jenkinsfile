@@ -37,7 +37,7 @@ pipeline {
                     sh 'rm -rf task'
                     sh 'git clone https://github.com/ibrahim-osama-amin/task.git'
                     sh 'ls -l task'
-                    sh 'cp task/Dockerfile .'
+                    sh 'mv task/Dockerfile .'
                     sh "docker build -t ${imageName} ."
                 }
             }
