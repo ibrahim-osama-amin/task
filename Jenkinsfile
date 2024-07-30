@@ -29,7 +29,24 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit tests...'
-                    sh 'npm test || true'
+                    sh 'npm test || true' // I ignored the error of the script as the original code did not include a test
+                }
+            }
+        }
+        stage('Building Docker image'){
+            steps {
+                script{
+                    echo 'Building docker image...'
+                    buildImage(env.IMAGE_NAME)
+                }
+            }
+        }
+        stage('Pushing Docker image'){
+            steps {
+                script{
+                   echo 'Pushing docker image to docker hub repo...'
+                   dockerLogin()
+                   dockerPush(env.IMAGE_NAME) 
                 }
             }
         }
