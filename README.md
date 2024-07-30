@@ -6,14 +6,16 @@ I assumed I cannot change the source code since this is out of the scope of devo
 I had to install NPM in jenkins
 
 The original code did not create a test script so I ignored its error 
-code
+
 sh 'npm test || true' // I ignored the error of the script as the original code did not include a test
-code
+
 
 
 I assumed that the ec2 instance is ready to run docker and docker compose commands for simplicity
+
+################################
 so I did these commands outside of the jenkinsfile
-code 
+ 
 sudo dnf install docker -y
 install docker compose
 
