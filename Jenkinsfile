@@ -47,7 +47,7 @@ pipeline {
                 script{
                    echo 'Pushing docker image to docker hub repo...'
                    dockerLogin()
-                   docker.push(env.IMAGE_NAME)
+                   sh "docker push ${IMAGE_NAME}"
                 }
             }
         }
