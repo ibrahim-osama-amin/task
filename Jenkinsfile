@@ -16,13 +16,20 @@ pipeline {
         IMAGE_NAME = 'ibrahimosama/task:nodejs-api-template'
     }
     stages {
-        stage('Checkout') {
+        stage('Checkout code') {
             steps {
                 script {
                     echo 'Getting the source code....'
                     git branch: 'master', url: 'https://github.com/amarthakur0/nodejs-api-template.git'
                 }
                 
+            }
+        }
+        stage('Checkout Build Repo') {
+            steps {
+                script {
+                    git branch: 'master', url: 'https://github.com/ibrahim-osama-amin/task.git'
+                }
             }
         }
         stage ('Running unit tests'){
@@ -37,7 +44,8 @@ pipeline {
             steps {
                 script{
                     echo 'Building docker image...'
-                    sh 'ls -l'
+                    sh 'cp task/Dockerfile .'
+                    buildImage(env.IMAGE_NAME)
                 }
             }
         }
@@ -46,6 +54,7 @@ pipeline {
                 script{
                    echo 'Pushing docker image to docker hub repo...'
                    dockerLogin()
+                   dockerPush(env.IMAGE_NAME)
                 }
             }
         }
