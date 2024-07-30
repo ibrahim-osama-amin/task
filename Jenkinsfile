@@ -34,6 +34,7 @@ pipeline {
             steps {
                 script{
                     echo 'Building docker image...'
+                    sh 'rm -rf task'
                     sh 'git clone https://github.com/ibrahim-osama-amin/task.git'
                     sh 'cp task/Dockerfile .'
                     sh 'docker build -t $imageName .'
