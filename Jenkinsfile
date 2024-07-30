@@ -9,9 +9,6 @@ library identifier: 'jenkins-shared-library@main', retriever: modernSCM(
 
 pipeline {
     agent any
-    tools {
-        maven 'Maven'
-    }
     environment {
         IMAGE_NAME = 'ibrahimosama/task:nodejs-api-template'
     }
@@ -44,8 +41,7 @@ pipeline {
             steps {
                 script{
                     echo 'Building docker image...'
-                    sh 'cp task/Dockerfile .'
-                    buildImage(env.IMAGE_NAME)
+                    sh 'ls -l'
                 }
             }
         }
