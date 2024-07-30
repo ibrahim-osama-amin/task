@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     echo 'Getting the source code'
-                    git branch: 'main', url: 'https://github.com/amarthakur0/nodejs-api-template'
+                    git branch: 'master', url: 'https://github.com/amarthakur0/nodejs-api-template.git'
                 }
                 
             }
