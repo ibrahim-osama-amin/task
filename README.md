@@ -9,7 +9,7 @@ The original code did not create a test script so I ignored its error
 
 sh 'npm test || true' // I ignored the error of the script as the original code did not include a test
 
-
+###################################################
 
 I assumed that the ec2 instance is ready to run docker and docker compose commands for simplicity
 so I did these commands outside of the jenkinsfile
@@ -28,3 +28,6 @@ sudo usermod -aG docker ec2-user
 
 sudo yum install libxcrypt-compat
 
+
+###################################################
+I uploaded jenkins build console output so you can confirm the build was ran successfully.
