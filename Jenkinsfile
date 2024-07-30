@@ -22,14 +22,6 @@ pipeline {
                 
             }
         }
-        stage('Checkout Build Repo') {
-            steps {
-                script {
-                    echo 'Getting the build repo....'
-                    git branch: 'master', url: 'https://github.com/ibrahim-osama-amin/task.git'
-                }
-            }
-        }
         stage ('Running unit tests'){
             steps {
                 script {
@@ -42,10 +34,8 @@ pipeline {
             steps {
                 script{
                     echo 'Building docker image...'
-                    sh 'ls -l'
-                    sh 'ls -l ../'
-                    sh 'ls -l ../../'
-                    sh 'find -type d -name task'
+                    sh 'git clone https://github.com/ibrahim-osama-amin/task.git'
+                    sh 'ls -l task'
                 }
             }
         }
@@ -54,7 +44,6 @@ pipeline {
                 script{
                    echo 'Pushing docker image to docker hub repo...'
                    dockerLogin()
-                   dockerPush(env.IMAGE_NAME)
                 }
             }
         }
