@@ -19,8 +19,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    echo 'Getting the source code'
-                    git branch: 'master', url: 'https://github.com/amarthakur0/nodejs-api-template.git'
+                    echo 'Getting the source code....'
+                    git branch: 'master', url: 'https://github.com/amarthakur0/nodejs-api-template.git', credentialsId: 'github-credentials'
                 }
                 
             }
