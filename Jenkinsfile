@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script{
                     echo 'Building docker image...'
-                    buildImage(env.IMAGE_NAME)
+                    sh 'ls -l'
                 }
             }
         }
@@ -46,7 +46,6 @@ pipeline {
                 script{
                    echo 'Pushing docker image to docker hub repo...'
                    dockerLogin()
-                   dockerPush(env.IMAGE_NAME) 
                 }
             }
         }
