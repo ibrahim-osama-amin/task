@@ -174,7 +174,7 @@ resource "aws_db_instance" "myapp-rds" {
   identifier           = "prod-rds"
   engine               = "mysql"
   engine_version       = "8.0"
-  instance_class       = "db.t2.micro"
+  instance_class       = "db.t3.micro"
   username             = "foo"
   password             = var.db_password
   parameter_group_name = "default.mysql8.0"
