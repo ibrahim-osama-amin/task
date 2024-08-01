@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-api-template
+  labels:
+    app: nodejs-api-template
+spec:
+  selector: 
+    matchLabels:
+      app: nodejs-api-template
+  template:
+    metadata:
+      labels:
+        app: nodejs-api-template
+    spec:
+      imagePullSecrets:
+        - name: my-registry-key
+      containers:
+      - name: redis
+        image: redis:3.2
+        ports:
+        - containerPort: 6379
+    
+      - name: mysql
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: MYSQL_DATABASE
+
+      - name: mongodb
+        image: mongo:4.2
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: node
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          secretKeyRef:
+            name: my-secret
+            key: MONGO_INITDB_ROOT_PASSWORD
+        - name: MONGO_INITDB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: MONGO_INITDB_DATABASE
+
+      - name: nodejs-api-template
+        image: ibrahimosama/task:nodejs-api-template
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

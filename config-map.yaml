@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map
+data:
+  MYSQL_DATABASE: nodejs_api
+  MONGO_INITDB_DATABASE: nodejs_api
