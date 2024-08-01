@@ -1,7 +1,0 @@
-version: '3.8'
-services:
-    nodejs-api-template:
-      image: ${IMAGE}
-      ports:
-        - 3000:3000
-      command: ["node", "index.js"]
