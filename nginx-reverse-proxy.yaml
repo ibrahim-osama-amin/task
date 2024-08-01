@@ -1,5 +1,5 @@
 ---
-- name: Configure nginux as a Reverse Proxy, setup a certificate and add firewall rules
+- name: installing nginx 
   hosts: ubuntu
   tasks:
   - name: Update repo and cache
