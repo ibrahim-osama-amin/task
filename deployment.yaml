@@ -50,9 +50,10 @@ spec:
         - name: MONGO_INITDB_ROOT_USERNAME
           value: node
         - name: MONGO_INITDB_ROOT_PASSWORD
-          secretKeyRef:
-            name: my-secret
-            key: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: MONGO_INITDB_ROOT_PASSWORD
         - name: MONGO_INITDB_DATABASE
           valueFrom:
             configMapKeyRef:
@@ -64,3 +65,10 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
+      volumes:
+      - name: mysql-data
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+      - name: db-dump
+        hostPath:
+          path: /root/db_dump
