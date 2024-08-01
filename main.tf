@@ -52,7 +52,7 @@ resource "aws_route_table_association" "a-rtb-subnet"{
 }
 
 resource "aws_security_group" "myapp-sg"{
-    name = "prod-sg"
+    name = "prod-app-sg"
     vpc_id = aws_vpc.myapp-vpc.id
     ingress {
         from_port = 22
@@ -74,7 +74,34 @@ resource "aws_security_group" "myapp-sg"{
         prefix_list_ids = []
     }
         tags = {
-        Name: "prod-sg"
+        Name: "prod-app-sg"
+    }
+}
+
+resource "aws_security_group" "rds-sg"{
+    name = "prod-rds-sg"
+    vpc_id = aws_vpc.myapp-vpc.id
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = [var.my_ip]
+    }
+        ingress {
+        from_port = 3000
+        to_port = 3000
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+        prefix_list_ids = []
+    }
+        tags = {
+        Name: "prod-rds-sg"
     }
 }
 
@@ -115,7 +142,7 @@ output "aws_ami_id"{
 
 
 resource "aws_db_instance" "myapp-rds" {
-  allocated_storage    = 10
+  allocated_storage    = 20
   db_name              = "prod-rds"
   engine               = "mysql"
   engine_version       = "8.0"
@@ -125,6 +152,6 @@ resource "aws_db_instance" "myapp-rds" {
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
   db_subnet_group_name = aws_subnet.myapp-subnet-1.id
-  vpc_security_group_ids = [aws_security_group.myapp-sg.id]
+  vpc_security_group_ids = [aws_security_group.rds-sg.id]
   availability_zone = var.avail_zone
 }
