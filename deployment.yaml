@@ -13,8 +13,6 @@ spec:
       labels:
         app: nodejs-api-template
     spec:
-      imagePullSecrets:
-        - name: my-registry-key
       containers:
       - name: redis
         image: redis:3.2
