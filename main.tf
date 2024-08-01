@@ -8,6 +8,7 @@ variable avail_zone {}
 variable instance_type {}
 variable my_ip {}
 variable public_key_location {}
+variable db_password {}
 
 
 resource "aws_vpc" "myapp-vpc" {
@@ -110,4 +111,20 @@ resource "aws_instance" "myapp-server"{
 
 output "aws_ami_id"{
     value = data.aws_ami.latest-amazon-linux-image.id
+}
+
+
+resource "aws_db_instance" "myapp-rds" {
+  allocated_storage    = 10
+  db_name              = "prod-rds"
+  engine               = "mysql"
+  engine_version       = "8.0"
+  instance_class       = "db.t3.micro"
+  username             = "foo"
+  password             = var.db_password
+  parameter_group_name = "default.mysql8.0"
+  skip_final_snapshot  = true
+  db_subnet_group_name = aws_subnet.myapp-subnet-1.id
+  vpc_security_group_ids = [aws_security_group.myapp-sg.id]
+  availability_zone = var.avail_zone
 }
