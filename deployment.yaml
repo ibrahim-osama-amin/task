@@ -36,6 +36,11 @@ spec:
             configMapKeyRef:
               name: config-map
               key: MYSQL_DATABASE
+        volumeMounts:
+        - name: mysql-data
+          mountPath: /var/lib/mysql
+        - name: db-dump
+          mountPath: /docker-entrypoint-initdb.d
 
       - name: mongodb
         image: mongo:4.2
