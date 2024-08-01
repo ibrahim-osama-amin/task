@@ -139,7 +139,7 @@ resource "aws_instance" "myapp-server"{
 
 resource "aws_db_subnet_group" "myapp_subnet_group" {
   name       = "myapp-subnet-group"
-  subnet_ids = [aws_subnet.myapp_subnet-1.id]
+  subnet_ids = [aws_subnet.myapp-subnet-1.id]
   tags = {
     Name = "prod-subnet-group"
   }
@@ -153,7 +153,7 @@ resource "aws_db_instance" "myapp-rds" {
   identifier           = "prod-rds"
   engine               = "mysql"
   engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
+  instance_class       = "db.t2.micro"
   username             = "foo"
   password             = var.db_password
   parameter_group_name = "default.mysql8.0"
