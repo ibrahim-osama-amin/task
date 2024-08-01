@@ -136,9 +136,15 @@ resource "aws_instance" "myapp-server"{
     
 }
 
-output "aws_ami_id"{
-    value = data.aws_ami.latest-amazon-linux-image.id
+
+resource "aws_db_subnet_group" "myapp_subnet_group" {
+  name       = "myapp-subnet-group"
+  subnet_ids = [aws_subnet.myapp_subnet-1.id]
+  tags = {
+    Name = "prod-subnet-group"
+  }
 }
+
 
 
 resource "aws_db_instance" "myapp-rds" {
@@ -152,7 +158,11 @@ resource "aws_db_instance" "myapp-rds" {
   password             = var.db_password
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
-  db_subnet_group_name = aws_subnet.myapp-subnet-1.id
+  db_subnet_group_name = aws_db_subnet_group.myapp_subnet_group.name
   vpc_security_group_ids = [aws_security_group.rds-sg.id]
   availability_zone = var.avail_zone
+}
+
+output "aws_ami_id"{
+    value = data.aws_ami.latest-amazon-linux-image.id
 }
