@@ -136,16 +136,35 @@ resource "aws_instance" "myapp-server"{
     
 }
 
+#I need to create another subnet in another AZ to include n the aws_db_subnet_group
+
+
+
+
+
+resource "aws_subnet" "myapp_subnet_2" {
+  vpc_id = aws_vpc.myapp_vpc.id
+  cidr_block = var.subnet_cidr_block_2
+  availability_zone = var.avail_zone_2
+  tags = {
+    Name = "prod-subnet-2"
+  }
+}
+
+resource "aws_route_table_association" "a_rtb_subnet_2" {
+  subnet_id = aws_subnet.myapp_subnet_2.id
+  route_table_id = aws_route_table.myapp_route_table.id
+}
+
+
 
 resource "aws_db_subnet_group" "myapp_subnet_group" {
   name       = "myapp-subnet-group"
-  subnet_ids = [aws_subnet.myapp-subnet-1.id]
+  subnet_ids = [aws_subnet.myapp-subnet-1.id,aws_subnet.myapp_subnet_2.id]
   tags = {
     Name = "prod-subnet-group"
   }
 }
-
-
 
 resource "aws_db_instance" "myapp-rds" {
   allocated_storage    = 20
