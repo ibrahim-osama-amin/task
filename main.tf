@@ -170,7 +170,7 @@ resource "aws_db_subnet_group" "myapp_subnet_group" {
 
 resource "aws_db_instance" "myapp-rds" {
   allocated_storage    = 20
-  db_name              = "prod-rds"
+  db_name              = "prod"
   identifier           = "prod-rds"
   engine               = "mysql"
   engine_version       = "8.0"
