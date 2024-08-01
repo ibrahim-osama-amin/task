@@ -145,7 +145,7 @@ resource "aws_instance" "myapp-server"{
 
 
 resource "aws_subnet" "myapp_subnet_2" {
-  vpc_id = aws_vpc.myapp_vpc.id
+  vpc_id = aws_vpc.myapp-vpc.id
   cidr_block = var.subnet_cidr_block_2
   availability_zone = var.avail_zone_2
   tags = {
