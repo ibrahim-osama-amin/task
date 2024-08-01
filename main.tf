@@ -9,6 +9,8 @@ variable instance_type {}
 variable my_ip {}
 variable public_key_location {}
 variable db_password {}
+variable subnet_cidr_block_2 {}
+variable avail_zone_2 {}
 
 
 resource "aws_vpc" "myapp-vpc" {
