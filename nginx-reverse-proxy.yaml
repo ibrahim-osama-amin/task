@@ -19,8 +19,15 @@
     ansible.builtin.file:
       path: /etc/nginx/ssl
       state: directory
-  - name: Copy rp.conf, server.csr, server.key
+  - name: Copy rp.conf 
     ansible.builtin.copy:
        src: /root/ansible/task/rp.conf
        dest: /etc/nginx/conf.d
-
+  - name: copy server.csr
+    ansible.builtin.copy:
+       src: /root/certs/server.csr
+       dest: /etc/nginx/ssl
+  - name: copy server.key
+    ansible.builtin.copy:
+       src: /root/certs/server.key
+       dest: /etc/nginx/ssl
