@@ -23,9 +23,9 @@
     ansible.builtin.copy:
        src: /root/ansible/task/rp.conf
        dest: /etc/nginx/conf.d
-  - name: copy server.csr
+  - name: copy server.cer
     ansible.builtin.copy:
-       src: /root/certs/server.csr
+       src: /root/certs/server.cer
        dest: /etc/nginx/ssl
   - name: copy server.key
     ansible.builtin.copy:
