@@ -1,5 +1,5 @@
 ---
-- name: installing nginx 
+- name: Installing Nginx 
   hosts: ubuntu
   tasks:
   - name: Update repo and cache
@@ -9,3 +9,10 @@
     apt:
       name: nginx
       state: latest
+
+#nginx starts automatically so I don't need to add a task to bring it up
+
+- name: Configuring Nginx 
+  hosts: ubuntu
+  tasks:
+  - name:
