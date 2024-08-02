@@ -35,3 +35,12 @@
       name: nginx
   - name: Reload Nginx
     ansible.builtin.command: nginx -s reload
+
+
+- name: Configuring Firewall rules 
+  hosts: ubuntu
+  tasks:
+  - name: Configuring firewall rules on Ubuntu using ufw 
+    ansible.builtin.command: ufw allow 443/tcp ; ufw allow 8443/tcp ; 
+  - name: Enable ufw 
+    ansible.builtin.command: ufw enable
