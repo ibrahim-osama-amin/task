@@ -3,6 +3,7 @@ version: '3.8'
 services:
   Grafana:
     image: grafana/grafana
+    container_name: grafana
     ports:
       - "3000:3000"
     networks:
@@ -10,6 +11,7 @@ services:
 
   nginx:
     image: nginx
+    container_name: nginx
     ports:
       - "80:80"
     networks:
@@ -17,6 +19,7 @@ services:
 
   prometheus:
     image: bitnami/prometheus
+    container_name: prometheus
     ports:
       - "9090:9090"
     networks:
