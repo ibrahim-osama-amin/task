@@ -9,7 +9,7 @@ services:
       - app-network
 
   nginx:
-    image: nginx/nginx
+    image: nginx
     ports:
       - "80:80"
     networks:
