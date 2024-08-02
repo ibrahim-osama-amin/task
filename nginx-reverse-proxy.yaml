@@ -25,7 +25,7 @@
        dest: /etc/nginx/conf.d
   - name: copy server.cer
     ansible.builtin.copy:
-       src: /root/certs/server.cer
+       src: /root/certs/cert.cer
        dest: /etc/nginx/ssl
   - name: copy server.key
     ansible.builtin.copy:
