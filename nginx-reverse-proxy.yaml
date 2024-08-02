@@ -37,10 +37,10 @@
     ansible.builtin.command: nginx -s reload
 
 
-- name: Configuring Firewall rules 
+- name: Configuring Firewall rules and enabling it 
   hosts: ubuntu
   tasks:
-  - name: Configuring firewall rules on Ubuntu using ufw to block allow 443, 8443 and 22 tcp
+  - name: Configuring firewall rules on Ubuntu using ufw to allow 443, 8443 and 22 tcp and enable ufw 
     ansible.builtin.shell: ufw allow 443/tcp ;   ufw allow 8443/tcp ; ufw allow 22/tcp ;
   - name: Enable ufw 
     ansible.builtin.shell: echo "yes" | ufw enable
