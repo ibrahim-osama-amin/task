@@ -10,8 +10,6 @@
       name: nginx
       state: latest
 
-#nginx starts automatically so I don't need to add a task to bring it up
-
 - name: Configuring Nginx 
   hosts: ubuntu
   tasks:
@@ -31,3 +29,9 @@
     ansible.builtin.copy:
        src: /root/certs/server.key
        dest: /etc/nginx/ssl
+  - name: Start Nginx systemctl
+    ansible.builtin.systemd_service:
+      state: restarted
+      name: nginx
+  - name: Reload Nginx
+    ansible.builtin.command: nginx -s reload
