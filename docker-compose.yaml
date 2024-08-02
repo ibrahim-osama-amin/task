@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  Grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx/nginx
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  prometheus:
+    image: bitnami/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - app-network
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+
+networks:
+  app-network:
+    driver: bridge
