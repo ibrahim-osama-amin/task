@@ -1,4 +1,4 @@
-I could not use Let's Encrypt as it requires a public domain, also when I tried to use it with AWS public domain instance it refused 
+I could not use Let's Encrypt as it requires a public domain and when I tried to use it with AWS public domain instance it refused 
 
 Please enter the domain name(s) you would like on your certificate (comma and/or
 space separated) (Enter 'c' to cancel): ec2-35-180-225-109.eu-west-3.compute.amazonaws.com
