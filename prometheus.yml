@@ -35,4 +35,11 @@ scrape_configs:
   enable_http2: true
   http_headers: null
   static_configs:
-  - targets: ['localhost:9090', 'nginx:80']
+  - targets: ['localhost:9090']
+
+- job_name: 'nginx'
+  scrape_interval: 15s
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets: ['nginx-exporter:9113']

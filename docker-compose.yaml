@@ -16,6 +16,19 @@ services:
       - "80:80"
     networks:
       - app-network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter
+    container_name: nginx-exporter
+    ports:
+      - "9113:9113"  # Default port for the exporter
+    networks:
+      - app-network
+    depends_on:
+      - nginx
+    command: "--nginx.scrape_uri=http://nginx:80/nginx_status"  # Configure the exporter to scrape metrics
+  
 
   prometheus:
     image: bitnami/prometheus
