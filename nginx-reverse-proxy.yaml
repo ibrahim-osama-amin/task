@@ -41,6 +41,6 @@
   hosts: ubuntu
   tasks:
   - name: Configuring firewall rules on Ubuntu using ufw 
-    ansible.builtin.command: ufw allow 443/tcp ; ufw allow 8443/tcp ; 
+    ansible.builtin.command: ufw allow 443/tcp ; ufw allow 8443/tcp ; ufw allow 22/tcp
   - name: Enable ufw 
     ansible.builtin.command: ufw enable
