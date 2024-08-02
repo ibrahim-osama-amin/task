@@ -15,4 +15,12 @@
 - name: Configuring Nginx 
   hosts: ubuntu
   tasks:
-  - name:
+  - name: Create ssl directory
+    ansible.builtin.file:
+      path: /etc/nginx/ssl
+      state: directory
+  - name: Copy rp.conf, server.csr, server.key
+    ansible.builtin.copy:
+       src: /root/ansible/task/rp.conf
+       dest: /etc/nginx/conf.d
+
