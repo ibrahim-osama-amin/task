@@ -22,7 +22,7 @@ services:
     image: nginx/nginx-prometheus-exporter
     container_name: nginx-exporter
     ports:
-      - "9113:9113"  # Default port for the exporter
+      - "9113:9113"
     networks:
       - app-network
     depends_on:
