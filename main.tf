@@ -8,6 +8,7 @@ variable avail_zone {}
 variable instance_type {}
 variable my_ip {}
 variable public_key_location {}
+variable private_key_location {}
 variable db_password {}
 variable subnet_cidr_block_2 {}
 variable avail_zone_2 {}
@@ -135,6 +136,27 @@ resource "aws_instance" "myapp-server"{
     tags = {
         Name = "prod-server"
     }
+
+    connection {
+        type = "ssh"
+        host = self.public_ip
+        user = "ec2-user"
+        private_key = file(var.private_key_location)
+    }
+
+    provisioner "file" {
+        source = "entry-script.sh"
+        destination = "/home/ec2-user/entry-script-on-ec2.sh"
+    }
+
+    provisioner "remote-exec" {
+        script = file("entry-script.sh")
+    }
+
+
+
+
+
 }
 
 #I need to create another subnet in another AZ to include n the aws_db_subnet_group
