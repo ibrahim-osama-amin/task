@@ -3,7 +3,7 @@ import schedule
 
 def monitor_application():
     try:
-        response = requests.get('http://192.168.111.128:8080/', timeout=5)
+        response = requests.get('http://192.168.111.128:8080/', timeout=5) # You can monitor any website response codes through this 
         print(response.status_code)
         if response.status_code == 200:
             print("Application is running well.....")
