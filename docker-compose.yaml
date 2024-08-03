@@ -29,7 +29,7 @@ services:
       - app-network
     depends_on:
       - nginx
-    command: "--nginx.scrape_uri=http://nginx:8080/status"  # Configure the exporter to scrape metrics
+    command: "NGINX_SCRAPE_URI=http://nginx:8080/status"  # Configure the exporter to scrape metrics
   
 
   prometheus:
