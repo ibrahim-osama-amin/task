@@ -409,44 +409,219 @@ Do you want to perform these actions?
   Only 'yes' will be accepted to approve.
 
   Enter a value: yes
-
-aws_key_pair.ssh-key: Creating...
 aws_vpc.myapp-vpc: Creating...
+aws_key_pair.ssh-key: Creating...
 aws_key_pair.ssh-key: Creation complete after 0s [id=server-key]
-aws_vpc.myapp-vpc: Creation complete after 2s [id=vpc-078d728a114ba903a]
-aws_internet_gateway.myapp_igw: Creating...
+aws_vpc.myapp-vpc: Creation complete after 2s [id=vpc-06cb15e7e8879de3b]
 aws_subnet.myapp-subnet-1: Creating...
+aws_internet_gateway.myapp_igw: Creating...
 aws_subnet.myapp_subnet_2: Creating...
 aws_security_group.myapp-sg: Creating...
-aws_internet_gateway.myapp_igw: Creation complete after 1s [id=igw-0dd215ffc05f37373]
-aws_route_table.myapp-route-table: Creating...
-aws_subnet.myapp-subnet-1: Creation complete after 1s [id=subnet-05d44495adaa79a9d]
-aws_subnet.myapp_subnet_2: Creation complete after 1s [id=subnet-082f9957a72e132f8]
+aws_subnet.myapp-subnet-1: Creation complete after 1s [id=subnet-0901cddf5a8026dc6]
+aws_subnet.myapp_subnet_2: Creation complete after 1s [id=subnet-0ffe434fe47508009]
 aws_db_subnet_group.myapp_subnet_group: Creating...
-aws_route_table.myapp-route-table: Creation complete after 1s [id=rtb-05eeb67d841bab17f]
+aws_internet_gateway.myapp_igw: Creation complete after 1s [id=igw-0b25dd623332157d3]
+aws_route_table.myapp-route-table: Creating...
+aws_route_table.myapp-route-table: Creation complete after 2s [id=rtb-08b7c918bc0d3b053]
 aws_route_table_association.a-rtb-subnet: Creating...
 aws_route_table_association.a_rtb_subnet_2: Creating...
 aws_db_subnet_group.myapp_subnet_group: Creation complete after 2s [id=myapp-subnet-group]
-aws_route_table_association.a-rtb-subnet: Creation complete after 1s [id=rtbassoc-0d4c50b0b3a2f0d44]
-aws_route_table_association.a_rtb_subnet_2: Creation complete after 1s [id=rtbassoc-02489e43bf04cb31a]
-aws_security_group.myapp-sg: Creation complete after 3s [id=sg-049744d10c782bfd8]
+aws_route_table_association.a-rtb-subnet: Creation complete after 0s [id=rtbassoc-06b8eb88eb2d91554]
+aws_route_table_association.a_rtb_subnet_2: Creation complete after 0s [id=rtbassoc-0f09ba10c24b9f960]
+aws_security_group.myapp-sg: Creation complete after 3s [id=sg-0e67d7eef871df1ef]
 aws_security_group.rds-sg: Creating...
 aws_instance.myapp-server: Creating...
-aws_security_group.rds-sg: Creation complete after 4s [id=sg-032b7356eac4efe43]
+aws_security_group.rds-sg: Creation complete after 4s [id=sg-0fc9e1086168ea271]
 aws_db_instance.myapp-rds: Creating...
 aws_instance.myapp-server: Still creating... [10s elapsed]
 aws_db_instance.myapp-rds: Still creating... [10s elapsed]
 aws_instance.myapp-server: Still creating... [20s elapsed]
 aws_db_instance.myapp-rds: Still creating... [20s elapsed]
-aws_instance.myapp-server: Still creating... [30s elapsed]
-aws_db_instance.myapp-rds: Still creating... [30s elapsed]
 aws_instance.myapp-server: Provisioning with 'file'...
+aws_instance.myapp-server: Still creating... [30s elapsed]
 aws_instance.myapp-server: Provisioning with 'remote-exec'...
+aws_instance.myapp-server (remote-exec): Connecting to remote host via SSH...
+aws_instance.myapp-server (remote-exec):   Host: 3.127.69.190
+aws_instance.myapp-server (remote-exec):   User: ec2-user
+aws_instance.myapp-server (remote-exec):   Password: false
+aws_instance.myapp-server (remote-exec):   Private key: true
+aws_instance.myapp-server (remote-exec):   Certificate: false
+aws_instance.myapp-server (remote-exec):   SSH Agent: false
+aws_instance.myapp-server (remote-exec):   Checking Host Key: false
+aws_instance.myapp-server (remote-exec):   Target Platform: unix
+aws_instance.myapp-server (remote-exec): Connected!
+aws_db_instance.myapp-rds: Still creating... [30s elapsed]
+aws_instance.myapp-server (remote-exec): Waiting for process with pid 2277 to finish.
+aws_instance.myapp-server: Still creating... [40s elapsed]
 aws_db_instance.myapp-rds: Still creating... [40s elapsed]
+aws_instance.myapp-server (remote-exec): Last metadata expiration check: 0:00:01 ago on Sat Aug  3 18:06:42 2024.
+aws_instance.myapp-server: Still creating... [50s elapsed]
+aws_instance.myapp-server (remote-exec): Dependencies resolved.
+aws_instance.myapp-server (remote-exec): Nothing to do.
+aws_instance.myapp-server (remote-exec): Complete!
+aws_instance.myapp-server (remote-exec): Last metadata expiration check: 0:00:04 ago on Sat Aug  3 18:06:42 2024.
+aws_instance.myapp-server (remote-exec): Dependencies resolved.
+aws_instance.myapp-server (remote-exec): ========================================
+aws_instance.myapp-server (remote-exec):  Package    Arch   Version
+aws_instance.myapp-server (remote-exec):                       Repository   Size
+aws_instance.myapp-server (remote-exec): ========================================
+aws_instance.myapp-server (remote-exec): Installing:
+aws_instance.myapp-server (remote-exec):  docker     x86_64 25.0.6-1.amzn2023.0.1
+aws_instance.myapp-server (remote-exec):                       amazonlinux  44 M
+aws_instance.myapp-server (remote-exec): Installing dependencies:
+aws_instance.myapp-server (remote-exec):  containerd x86_64 1.7.11-1.amzn2023.0.1
+aws_instance.myapp-server (remote-exec):                       amazonlinux  35 M
+aws_instance.myapp-server (remote-exec):  iptables-libs
+aws_instance.myapp-server (remote-exec):             x86_64 1.8.8-3.amzn2023.0.2
+aws_instance.myapp-server (remote-exec):                       amazonlinux 401 k
+aws_instance.myapp-server (remote-exec):  iptables-nft
+aws_instance.myapp-server (remote-exec):             x86_64 1.8.8-3.amzn2023.0.2
+aws_instance.myapp-server (remote-exec):                       amazonlinux 183 k
+aws_instance.myapp-server (remote-exec):  libcgroup  x86_64 3.0-1.amzn2023.0.1
+aws_instance.myapp-server (remote-exec):                       amazonlinux  75 k
+aws_instance.myapp-server (remote-exec):  libnetfilter_conntrack
+aws_instance.myapp-server (remote-exec):             x86_64 1.0.8-2.amzn2023.0.2
+aws_instance.myapp-server (remote-exec):                       amazonlinux  58 k
+aws_instance.myapp-server (remote-exec):  libnfnetlink
+aws_instance.myapp-server (remote-exec):             x86_64 1.0.1-19.amzn2023.0.2
+aws_instance.myapp-server (remote-exec):                       amazonlinux  30 k
+aws_instance.myapp-server (remote-exec):  libnftnl   x86_64 1.2.2-2.amzn2023.0.2
+aws_instance.myapp-server (remote-exec):                       amazonlinux  84 k
+aws_instance.myapp-server (remote-exec):  pigz       x86_64 2.5-1.amzn2023.0.3
+aws_instance.myapp-server (remote-exec):                       amazonlinux  83 k
+aws_instance.myapp-server (remote-exec):  runc       x86_64 1.1.11-1.amzn2023.0.1
+aws_instance.myapp-server (remote-exec):                       amazonlinux 3.0 M
+
+aws_instance.myapp-server (remote-exec): Transaction Summary
+aws_instance.myapp-server (remote-exec): ========================================
+aws_instance.myapp-server (remote-exec): Install  10 Packages
+
+aws_instance.myapp-server (remote-exec): Total download size: 83 M
+aws_instance.myapp-server (remote-exec): Installed size: 315 M
+aws_instance.myapp-server (remote-exec): Downloading Packages:
+aws_instance.myapp-server (remote-exec):         ---  B/s |   0  B     --:-- ETA
+aws_instance.myapp-server (remote-exec): (1/10): ---  B/s |   0  B     --:-- ETA
+aws_instance.myapp-server (remote-exec): (1/10): 2.8 MB/s | 401 kB     00:00
+aws_instance.myapp-server (remote-exec): (2-3/10  16 MB/s | 2.3 MB     00:05 ETA
+aws_instance.myapp-server (remote-exec): (2/10): 6.6 MB/s | 183 kB     00:00
+aws_instance.myapp-server (remote-exec): (3-4/10  17 MB/s | 6.0 MB     00:04 ETA
+aws_instance.myapp-server (remote-exec): (3/10): 2.4 MB/s |  75 kB     00:00
+aws_instance.myapp-server (remote-exec): (4-5/10  17 MB/s | 9.6 MB     00:04 ETA
+aws_instance.myapp-server (remote-exec): (4/10): 2.0 MB/s |  58 kB     00:00
+aws_instance.myapp-server (remote-exec): (5-6/10  18 MB/s |  14 MB     00:03 ETA
+aws_instance.myapp-server (remote-exec): (5/10): 1.4 MB/s |  30 kB     00:00
+aws_instance.myapp-server (remote-exec): (6-7/10  19 MB/s |  17 MB     00:03 ETA
+aws_instance.myapp-server (remote-exec): (6/10): 2.5 MB/s |  84 kB     00:00
+aws_instance.myapp-server (remote-exec): (7-8/10  20 MB/s |  25 MB     00:02 ETA
+aws_instance.myapp-server (remote-exec): (7/10): 1.8 MB/s |  83 kB     00:00
+aws_instance.myapp-server (remote-exec): (8-9/10  21 MB/s |  31 MB     00:02 ETA
+aws_instance.myapp-server (remote-exec): (8/10):  22 MB/s | 3.0 MB     00:00
+aws_instance.myapp-server (remote-exec): (9-10/1  25 MB/s |  56 MB     00:01 ETA
+aws_instance.myapp-server (remote-exec): (9/10):  43 MB/s |  35 MB     00:00
+aws_instance.myapp-server (remote-exec): (10/10)  28 MB/s |  77 MB     00:00 ETA
+aws_instance.myapp-server (remote-exec): (10/10)  38 MB/s |  44 MB     00:01
+aws_instance.myapp-server (remote-exec): ----------------------------------------
+aws_instance.myapp-server (remote-exec): Total    66 MB/s |  83 MB     00:01
 aws_db_instance.myapp-rds: Still creating... [50s elapsed]
+aws_instance.myapp-server (remote-exec): Running transaction check
+aws_instance.myapp-server (remote-exec): Transaction check succeeded.
+aws_instance.myapp-server (remote-exec): Running transaction test
+aws_instance.myapp-server (remote-exec): Transaction test succeeded.
+aws_instance.myapp-server (remote-exec): Running transaction
+aws_instance.myapp-server (remote-exec):   Preparing        :  [=          ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [==         ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [===        ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [====       ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [=====      ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [======     ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [=======    ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [========   ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :  [=========  ] 1/1
+aws_instance.myapp-server (remote-exec):   Preparing        :                1/1
+aws_instance.myapp-server (remote-exec):   Installing       : runc   1/10
+aws_instance.myapp-server (remote-exec):   Installing       : runc-1.1.1    1/10
+aws_instance.myapp-server (remote-exec):   Installing       : cont   2/10
+aws_instance.myapp-server (remote-exec):   Installing       : containerd    2/10
+aws_instance.myapp-server (remote-exec):   Running scriptlet: containerd    2/10
+aws_instance.myapp-server (remote-exec):   Installing       : pigz   3/10
+aws_instance.myapp-server (remote-exec):   Installing       : pigz-2.5-1    3/10
+aws_instance.myapp-server (remote-exec):   Installing       : libn   4/10
+aws_instance.myapp-server (remote-exec):   Installing       : libnftnl-1    4/10
+aws_instance.myapp-server (remote-exec):   Installing       : libn   5/10
+aws_instance.myapp-server (remote-exec):   Installing       : libnfnetli    5/10
+aws_instance.myapp-server (remote-exec):   Installing       : libn   6/10
+aws_instance.myapp-server (remote-exec):   Installing       : libnetfilt    6/10
+aws_instance.myapp-server (remote-exec):   Installing       : ipta   7/10
+aws_instance.myapp-server (remote-exec):   Installing       : iptables-l    7/10
+aws_instance.myapp-server (remote-exec):   Installing       : ipta   8/10
+aws_instance.myapp-server (remote-exec):   Installing       : iptables-n    8/10
+aws_instance.myapp-server (remote-exec):   Running scriptlet: iptables-n    8/10
+aws_instance.myapp-server (remote-exec):   Installing       : libc   9/10
+aws_instance.myapp-server (remote-exec):   Installing       : libcgroup-    9/10
+aws_instance.myapp-server (remote-exec):   Running scriptlet: docker-25.   10/10
+aws_instance.myapp-server (remote-exec):   Installing       : dock  10/10
+aws_instance.myapp-server (remote-exec):   Installing       : docker-25.   10/10
+aws_instance.myapp-server (remote-exec):   Running scriptlet: docker-25.   10/10
+aws_instance.myapp-server (remote-exec): Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.
+
+aws_instance.myapp-server: Still creating... [1m0s elapsed]
+aws_instance.myapp-server (remote-exec):   Verifying        : containerd    1/10
+aws_instance.myapp-server (remote-exec):   Verifying        : docker-25.    2/10
+aws_instance.myapp-server (remote-exec):   Verifying        : iptables-l    3/10
+aws_instance.myapp-server (remote-exec):   Verifying        : iptables-n    4/10
+aws_instance.myapp-server (remote-exec):   Verifying        : libcgroup-    5/10
+aws_instance.myapp-server (remote-exec):   Verifying        : libnetfilt    6/10
+aws_instance.myapp-server (remote-exec):   Verifying        : libnfnetli    7/10
+aws_instance.myapp-server (remote-exec):   Verifying        : libnftnl-1    8/10
+aws_instance.myapp-server (remote-exec):   Verifying        : pigz-2.5-1    9/10
+aws_instance.myapp-server (remote-exec):   Verifying        : runc-1.1.1   10/10
+
+aws_instance.myapp-server (remote-exec): Installed:
+aws_instance.myapp-server (remote-exec):   containerd-1.7.11-1.amzn2023.0.1.x86_64
+aws_instance.myapp-server (remote-exec):   docker-25.0.6-1.amzn2023.0.1.x86_64
+aws_instance.myapp-server (remote-exec):   iptables-libs-1.8.8-3.amzn2023.0.2.x86_64
+aws_instance.myapp-server (remote-exec):   iptables-nft-1.8.8-3.amzn2023.0.2.x86_64
+aws_instance.myapp-server (remote-exec):   libcgroup-3.0-1.amzn2023.0.1.x86_64
+aws_instance.myapp-server (remote-exec):   libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64
+aws_instance.myapp-server (remote-exec):   libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64
+aws_instance.myapp-server (remote-exec):   libnftnl-1.2.2-2.amzn2023.0.2.x86_64
+aws_instance.myapp-server (remote-exec):   pigz-2.5-1.amzn2023.0.3.x86_64
+aws_instance.myapp-server (remote-exec):   runc-1.1.11-1.amzn2023.0.1.x86_64
+
+aws_instance.myapp-server (remote-exec): Complete!
 aws_db_instance.myapp-rds: Still creating... [1m0s elapsed]
+aws_instance.myapp-server (remote-exec): [ec2-user@ip-10-0-10-227 ~]$
+aws_instance.myapp-server: Still creating... [1m10s elapsed]
 aws_db_instance.myapp-rds: Still creating... [1m10s elapsed]
+aws_instance.myapp-server: Still creating... [1m20s elapsed]
 aws_db_instance.myapp-rds: Still creating... [1m20s elapsed]
+aws_instance.myapp-server: Still creating... [1m30s elapsed]
 aws_db_instance.myapp-rds: Still creating... [1m30s elapsed]
+aws_instance.myapp-server: Still creating... [1m40s elapsed]
 aws_db_instance.myapp-rds: Still creating... [1m40s elapsed]
+aws_instance.myapp-server: Still creating... [1m50s elapsed]
 aws_db_instance.myapp-rds: Still creating... [1m50s elapsed]
+aws_instance.myapp-server: Still creating... [2m0s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m0s elapsed]
+aws_instance.myapp-server: Still creating... [2m10s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m10s elapsed]
+aws_instance.myapp-server: Still creating... [2m20s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m20s elapsed]
+aws_instance.myapp-server: Still creating... [2m30s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m30s elapsed]
+aws_instance.myapp-server: Still creating... [2m40s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m40s elapsed]
+aws_instance.myapp-server: Still creating... [2m50s elapsed]
+aws_db_instance.myapp-rds: Still creating... [2m50s elapsed]
+aws_instance.myapp-server: Still creating... [3m0s elapsed]
+aws_db_instance.myapp-rds: Still creating... [3m0s elapsed]
+aws_instance.myapp-server: Still creating... [3m10s elapsed]
+aws_db_instance.myapp-rds: Still creating... [3m10s elapsed]
+aws_instance.myapp-server: Still creating... [3m20s elapsed]
+aws_db_instance.myapp-rds: Still creating... [3m20s elapsed]
+aws_instance.myapp-server: Still creating... [3m30s elapsed]
+aws_db_instance.myapp-rds: Still creating... [3m30s elapsed]
+aws_instance.myapp-server: Still creating... [3m40s elapsed]
+aws_db_instance.myapp-rds: Still creating... [3m40s elapsed]
+aws_db_instance.myapp-rds: Creation complete after 3m44s [id=db-FJI6FS5WODFINMYQAKS5PGNS6Q]
+aws_instance.myapp-server: Creation complete after 3m46s [id=i-0a3728a67074f1089]
