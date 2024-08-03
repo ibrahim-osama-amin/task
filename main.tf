@@ -132,11 +132,18 @@ resource "aws_instance" "myapp-server"{
 
     associate_public_ip_address  = true 
     key_name = aws_key_pair.ssh-key.key_name
-     user_data = file ("entry-script.sh")
     tags = {
         Name = "prod-server"
     }
-    
+ user_data = <<EOF
+               #!/bin/bash
+               sudo dnf update -y && sudo dnf install docker -y
+               sudo systemctl start docker
+               sudo usermod -aG docker ec2-user
+               newgrp docker
+               docker run -d -p 3000:3000 ibrahimosama/task:nodejs-api-template
+              EOF
+
 }
 
 #I need to create another subnet in another AZ to include n the aws_db_subnet_group
