@@ -18,7 +18,7 @@ services:
     networks:
       - app-network
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./status.conf:/etc/nginx/conf.d/status.conf
 
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter
