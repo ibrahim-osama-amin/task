@@ -11,3 +11,5 @@ Ask for help or search for solutions at https://community.letsencrypt.org. See t
 I created a self signed certificate and I uploaded it to the ubuntu as an alternative for this problem.
 
 I created apache webserver and made the Reverse proxy redirect traffic to it
+
+console.log (applying the playbook results)
