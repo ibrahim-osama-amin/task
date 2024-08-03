@@ -151,8 +151,8 @@ resource "aws_instance" "myapp-server"{
 
      provisioner "remote-exec" {
          inline = [
-             "chmod +x /home/ec2-user/test-script.sh",
-             "/home/ec2-user/test-script.sh"
+             "sudo chmod +x /home/ec2-user/entry-script.sh",
+             "/home/ec2-user/entry-script.sh"
          ]
      }
 
