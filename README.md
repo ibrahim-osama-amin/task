@@ -4,3 +4,6 @@ A VPC in AWS
 An EC2 instance running the application
 An RDS database
 Necessary security groups and IAM roles
+
+
+Console output proves that the resources have been created successfully.
