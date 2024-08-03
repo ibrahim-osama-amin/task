@@ -143,7 +143,7 @@ sudo usermod -aG docker ec2-user
 newgrp docker
 docker run -d -p 3000:3000 ibrahimosama/task:nodejs-api-template
 EOF
-
+}
 
 #I need to create another subnet in another AZ to include n the aws_db_subnet_group
 
